@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 public class Main {
     public static void findPalindrome() throws FileNotFoundException
     {
@@ -20,13 +19,11 @@ public class Main {
             for (int i = line.length() - 1; i >= 0; i--) {
                 rev = rev + line.charAt(i);
             }
-
             // Checking if original and reverse words are equal
             if (line.equals(rev)) {
                 // Printing all palindrome words
                 System.out.println(line);
             }
-
         }
         input.close();
     }
@@ -55,12 +52,8 @@ public class Main {
         }
         // Printing output of this method
         System.out.println("From 'b' to 'm' there are: " + count + " vowels.");
-        System.out.println("'" + longestWord + "' is the longest word in the range from 'b' to 'm'.");
+        System.out.println("'" + longestWord + "' is one of the longest word in the range from 'b' to 'm' and it has " + longestWord.length() + " characters.");
     }
-
-
-
-
     public static void mostWords() throws FileNotFoundException {
         HashMap<String, ArrayList<String>> words = new HashMap<String, ArrayList<String>>();
         int count = 0;
@@ -75,7 +68,6 @@ public class Main {
                     words.put(String.valueOf(line.charAt(0)), new ArrayList<String>());
                     words.get(String.valueOf(line.charAt(0))).add(line);
                 }
-
         }
         int mostWords = 0;
         int group = 0;
@@ -84,16 +76,13 @@ public class Main {
                 mostWords = words.get(String.valueOf(i)).size();
                 group = i;
             }
-
         }
-
-        System.out.println("Group: " + (char) group + " is the largest group with: " + mostWords + " words");
+        System.out.println("Group: '" + (char) group + "' is the largest group with: " + mostWords + " words");
         input.close();
     }
     public static void main(String[] args) throws FileNotFoundException {
-       // findPalindrome();
+        findPalindrome();
         printBtoM();
-       // mostWords();
+        mostWords();
     }
-
 }
